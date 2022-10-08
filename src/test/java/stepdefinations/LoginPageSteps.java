@@ -1,10 +1,12 @@
 package stepdefinations;
 
+
 import org.junit.Assert;
 
 import com.page.LoginPage;
 import com.qa.factory.DriverFactory;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +22,7 @@ public class LoginPageSteps {
 				.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 	}
 
-	@When("User gets the title of the page")
+	@And("User gets the title of the page")
 	public void user_gets_the_title_of_the_page() {
 		title = loginpage.getLoginPageTitle();
 		System.out.println("Page title is: " + title);
@@ -28,7 +30,7 @@ public class LoginPageSteps {
 
 	@Then("Page title should be {string}")
 	public void page_title_should_be(String expectedTitleName) {
-		Assert.assertTrue(expectedTitleName.contains(title));
+		Assert.assertEquals(expectedTitleName, title);
 	}
 
 	@Then("Forgot your password link should be displayed")
