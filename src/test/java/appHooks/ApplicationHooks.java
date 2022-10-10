@@ -2,6 +2,7 @@ package appHooks;
 
 import java.util.Properties;
 
+import org.junit.Assume;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,13 @@ public class ApplicationHooks {
 	private DriverFactory df;
 	private ConfigReader configReader;
 	private Properties prop;
+
+//	Skip or ignore scenarios having @Skip tag
+//	@Before(value = "@Skip", order = 0)
+//	public void skipScenario(Scenario scenario) {
+//		System.out.println("Skipped scenario:: " + scenario.getName());
+//		Assume.assumeTrue(false);
+//	}
 
 	@Before(order = 0)
 	public void getProperty() {
